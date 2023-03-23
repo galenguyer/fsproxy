@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  lolproxy:
-    #image: docker.io/galenguyer/lolproxy:latest
+  fsproxy:
+    #image: docker.io/galenguyer/fsproxy:latest
     build: .
     command:
       - "--upstream"

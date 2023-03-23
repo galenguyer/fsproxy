@@ -5,5 +5,5 @@ COPY go.mod go.sum main.go /src/
 RUN go build -v
 
 FROM alpine
-COPY --from=builder /src/lolproxy /lolproxy
-ENTRYPOINT [ "/lolproxy", "--host", "0.0.0.0:6969" ]
+COPY --from=builder /src/fsproxy /fsproxy
+ENTRYPOINT [ "/fsproxy", "--host", "0.0.0.0:6969" ]
