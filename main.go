@@ -11,8 +11,8 @@ import (
 
 func main() {
 	host := flag.String("host", "localhost:6969", "host to bind to")
-	upstreamFlag := flag.String("upstream", "", "upstream host to proxy to")
-	only404 := flag.Bool("only404", false, "only change 404 status code")
+	upstreamFlag := flag.String("upstream", "", "upstream host to proxy to (required)")
+	only404 := flag.Bool("only404", false, "only change status code to 404")
 	flag.Parse()
 
 	if *upstreamFlag == "" {
@@ -23,7 +23,7 @@ func main() {
 		log.Fatal(err)
 	}
 	if upstream.Host == "" {
-		log.Fatal("upstream host is required")
+		log.Fatal("upstream host is required (you may be missing the protocol, ie http://)")
 	}
 	if upstream.Scheme == "" {
 		upstream.Scheme = "http"

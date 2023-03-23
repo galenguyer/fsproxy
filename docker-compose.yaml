@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  lolproxy:
+    #image: docker.io/galenguyer/lolproxy:latest
+    build: .
+    command:
+      - "--upstream"
+      - "https://example.com"
+    ports:
+      - "127.0.0.1:6969:6969"
